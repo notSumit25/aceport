@@ -133,37 +133,37 @@ function Navbar({ className }: { className?: string }) {
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="  text-sm grid grid-cols-2 gap-10 p-4">
             <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
+              title="Blisscord"
+              href="https://blisscord-two.vercel.app/"
+              src='/discord.png'
+              description="A discord clone with a twist made with Next.js, Tailwind CSS, sockets and much more."
             />
             <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
+              title="Geniushub"
+              href="https://geniushub.in"
+              src='/geniushub.png'
+              description="A platform for students to learn and grow with the help of mentors."
             />
             <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
+              title="LuneBlaze"
+              href="https://LuneBlaze.com"
+              src="/luneblaze.png"
+              description="Luneblaze provides Tech-based solutions to help institutions."
             />
             <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+              title="IMDB Clone"
+              href="https://imd-blite.vercel.app/"
+              src='/imdb.png'
+              description="A clone of the IMDB website made with Next.js, Tailwind CSS, and much more."
             />
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Socials">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+            <HoveredLink href="https://www.instagram.com/sumit___garg/">Instagram</HoveredLink>
+            <HoveredLink href="https://www.linkedin.com/in/sumit-garg-056b8b23a/">Linkedin</HoveredLink>
+            <HoveredLink href="https://github.com/notSumit25">Github</HoveredLink>
+            {/* <HoveredLink href="/enterprise"></HoveredLink> */}
           </div>
         </MenuItem>
       </Menu>

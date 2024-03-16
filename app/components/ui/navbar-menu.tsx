@@ -89,7 +89,7 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-2">
+    <Link href={href} target="blank" className="flex space-x-2">
       <Image
         src={src}
         width={140}
@@ -107,7 +107,7 @@ export const ProductItem = ({
 
 export const HoveredLink = ({ children, ...rest }: any) => {
   return (
-    <Link {...rest} className="text-neutral-200 ">
+    <Link {...rest} target="blank" className="text-neutral-200 ">
       {children}
     </Link>
   );
