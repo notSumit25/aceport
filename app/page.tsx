@@ -7,12 +7,14 @@ import { useState } from "react";
 import { cn } from "@/utils/cn";
 import { HeroParallaxDemo } from "./components/Projects";
 import { HeroParallax } from "./components/ui/hero-parallax";
+import { TextGenerateEffectDemo } from "./components/About";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black">
         <Navbar className="top-2" />
         <GridBackgroundDemo />
+        <TextGenerateEffectDemo />
         <HeroParallax products={products} />
     </main>
   );

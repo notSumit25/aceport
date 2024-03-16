@@ -1,10 +1,12 @@
-import React from 'react'
-import { SignupFormDemo } from '../components/Form'
+import React from "react";
+import { SignupFormDemo } from "../components/Form";
 
 const page = () => {
   return (
-    <SignupFormDemo />
-  )
-}
+    <div className="bg-black min-h-screen py-20">
+      <SignupFormDemo />
+    </div>
+  );
+};
 
-export default page
+export default page;
