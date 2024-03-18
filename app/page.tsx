@@ -8,6 +8,7 @@ import { cn } from "@/utils/cn";
 import { HeroParallaxDemo } from "./components/Projects";
 import { HeroParallax } from "./components/ui/hero-parallax";
 import { TextGenerateEffectDemo } from "./components/About";
+import Skills from "./components/Skills";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <GridBackgroundDemo />
         <TextGenerateEffectDemo />
         <HeroParallax products={products} />
+        <Skills />
     </main>
   );
 }
