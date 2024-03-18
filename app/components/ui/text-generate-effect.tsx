@@ -1,5 +1,4 @@
-"use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/utils/cn";
 
@@ -11,19 +10,47 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const [scope, animate] = useAnimate();
+  const [isInView, setIsInView] = useState(false);
+  const ref = useRef(null);
   let wordsArray = words.split(" ");
+
   useEffect(() => {
-    animate(
-      "span",
-      {
-        opacity: 1,
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
       },
       {
-        duration: 2,
-        delay: stagger(0.2),
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
       }
     );
-  }, [scope.current]);
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isInView) {
+      animate(
+        "span",
+        {
+          opacity: 1,
+        },
+        {
+          duration: 2,
+          delay: stagger(0.2),
+        }
+      );
+    }
+  }, [scope.current, isInView]);
 
   const renderWords = () => {
     return (
@@ -43,11 +70,12 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("font-bold bg-black my-10 mx-40", className)}>
+    <div id="about" ref={ref} className={cn("font-bold bg-black my-10 mx-40", className)}>
       <div className="mt-4">
         <span className="text-white text-5xl">
-            About me
+            About
         </span>
+        <span className="text-blue-500 text-5xl"> Me</span>
         <div className=" text-white text-2xl leading-snug tracking-wide mt-10">
           {renderWords()}
         </div>
