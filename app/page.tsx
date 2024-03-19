@@ -39,10 +39,28 @@ const products = [
   },
 
   {
-    title: "Editorially",
-    link: "https://editorially.org",
+    title: "Geniushub",
+    link: "https://www.geniushub.in/",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/editorially.png",
+      "/geniushub1.png",
+  },
+  {
+    title: "IMD-Blite",
+    link: "https://imd-blite.vercel.app/",
+    thumbnail:
+      "/imdb.webp",
+  },
+  {
+    title: "DashView",
+    link: "https://github.com/notSumit25/EcomDashBoard",
+    thumbnail:
+      "/dashboard.jpg",
+  },
+  {
+    title: "WhyBother",
+    link: "https://why-bother-gpt.vercel.app/",
+    thumbnail:
+      "/whybother.png",
   },
   
 ];

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import { cn } from "@/utils/cn";
@@ -10,51 +10,84 @@ import {
 } from "@tabler/icons-react";
 
 export function SignupFormDemo() {
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    message: '',
+  });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    console.log("Form submitted", formData);
   };
-return (
+  return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border">
-        <h2 className="font-bold text-xl text-neutral-200">
-            Contact Me
-        </h2>
-        <p className=" text-sm max-w-sm mt-2 text-neutral-300">
-            Feel free to reach out to me for any queries or feedback.
-        </p>
+      <h2 className="font-bold text-xl text-neutral-200">Contact Me</h2>
+      <p className=" text-sm max-w-sm mt-2 text-neutral-300">
+        Feel free to reach out to me for any queries or feedback.
+      </p>
 
-        <form className="my-8" onSubmit={handleSubmit}>
-            <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-                <LabelInputContainer>
-                    <Label htmlFor="firstname">First name</Label>
-                    <Input id="firstname" placeholder="First Name" type="text" />
-                </LabelInputContainer>
-                <LabelInputContainer>
-                    <Label htmlFor="lastname">Last name</Label>
-                    <Input id="lastname" placeholder="Last Name" type="text" />
-                </LabelInputContainer>
-            </div>
-            <LabelInputContainer className="mb-4">
-                <Label htmlFor="email">Email Address</Label>
-                <Input id="email" placeholder="Email Address" type="email" />
-            </LabelInputContainer>
-            <LabelInputContainer className="mb-4">
-                <Label htmlFor="message">Message</Label>
-                <Input id="message" placeholder="Enter your message" type="text" />
-            </LabelInputContainer>
+      <form className="my-8" onSubmit={handleSubmit}>
+        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+          <LabelInputContainer>
+            <Label htmlFor="firstname">First name</Label>
+            <Input
+              id="firstname"
+              placeholder="First Name"
+              type="text"
+              value={formData.firstname}
+              onChange={handleChange}
+            />
+          </LabelInputContainer>
+          <LabelInputContainer>
+            <Label htmlFor="lastname">Last name</Label>
+            <Input
+              id="lastname"
+              placeholder="Last Name"
+              type="text"
+              value={formData.lastname}
+              onChange={handleChange}
+            />
+          </LabelInputContainer>
+        </div>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Email Address</Label>
+          <Input
+            id="email"
+            placeholder="Email Address"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="message">Message</Label>
+          <Input
+            id="message"
+            placeholder="Enter your message"
+            type="text"
+            value={formData.message}
+            onChange={handleChange}
+          />
+        </LabelInputContainer>
+        <button
+          className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+          type="submit"
+        >
+          Submit &rarr;
+          <BottomGradient />
+        </button>
 
-            <button
-                className="bg-gradient-to-br relative group/btn from-zinc-900 to-zinc-900 block bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-                type="submit"
-            >
-                Submit &rarr;
-                <BottomGradient />
-            </button>
-
-            <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-        </form>
+        <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+      </form>
     </div>
-);
+  );
 }
 
 const BottomGradient = () => {
