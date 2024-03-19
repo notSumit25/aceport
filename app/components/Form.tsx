@@ -12,10 +12,10 @@ import { handlePostRequest } from "@/lib/handlereq";
 
 export function SignupFormDemo() {
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    message: '',
+    firstname: "",
+    lastname: "",
+    email: "",
+    message: "",
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -27,7 +27,12 @@ export function SignupFormDemo() {
     e.preventDefault();
     await handlePostRequest(formData);
     console.log("Form submitted");
-
+    setFormData({
+      firstname: "",
+      lastname: "",
+      email: "",
+      message: "",
+    });
   };
   return (
     <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black border">
