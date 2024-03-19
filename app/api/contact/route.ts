@@ -1,12 +1,19 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { transporter } from "@/lib/nodemailer";
+import { NextRequest, NextResponse } from "next/server";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
-        const { firstName, lastName, email, message } = req.body;
-        console.log(firstName, lastName, email, message);
-
-        res.status(200).json({ message: 'Data received successfully' });
-    } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
-    }
+export async function POST(req: NextRequest, res: NextResponse) {
+  try {
+    const response = await req.json();
+    const { firstname, lastname, email, message } = response;
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL,
+      subject: `New message from ${firstname} ${lastname}`,
+      text: message,
+    });
+    console.log(firstname, lastname, email, message);
+    return new NextResponse("POST request successful");
+  } catch (error) {
+    return new NextResponse("POST request failed");
+  }
 }
