@@ -35,7 +35,7 @@ const TimeLine = () => {
   };
 
   return (
-    <div className="w-full text-white p-20 space-y-10">
+    <div id="experience" className="w-full text-white p-20 space-y-10">
       <span className="text-5xl font-extrabold">
         Experience<span className="text-blue-500 text-5xl">.</span>
       </span>
