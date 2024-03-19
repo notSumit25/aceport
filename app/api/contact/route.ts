@@ -14,6 +14,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
     console.log(firstname, lastname, email, message);
     return new NextResponse("POST request successful");
   } catch (error) {
+    console.log(error);
     return new NextResponse("POST request failed");
   }
 }
